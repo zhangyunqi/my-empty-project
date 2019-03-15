@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+#spring配置
+spring:
+  # 应用配置
+  application:
+      name: my-empty-project
+
+  #数据源配置，使用Druid
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 配置Druid
+    druid:
+      # 定义的数据源名
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@192.168.65.49:1521/logtest
+      username: log
+      password: log
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 5
+      validation-query: select 1 from dual
+      validation-query-timeout: 30000
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 10000
+      min-evictable-idle-time-millis: 30000
+      async-close-connection-enable: true
+  freemarker:
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-session-attributes: true
+    expose-request-attributes: true
+    request-context-attribute: request
+  #热部署
+  devtools:
+    remote:
+      restart:
+        enabled: true
