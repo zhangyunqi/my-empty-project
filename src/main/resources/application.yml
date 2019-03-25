@@ -13,8 +13,12 @@ spring:
     # 配置Druid
     druid:
       # 定义的数据源名
-      driver-class-name: oracle.jdbc.driver.OracleDriver
-      url: jdbc:oracle:thin:@192.168.65.49:1521/logtest
+      #driver-class-name: oracle.jdbc.driver.OracleDriver
+      #url: jdbc:oracle:thin:@192.168.65.49:1521/logtest
+      #username: log
+      #password: log
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       username: log
       password: log
       initial-size: 1
@@ -44,3 +48,12 @@ spring:
     remote:
       restart:
         enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL55Dialect
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
