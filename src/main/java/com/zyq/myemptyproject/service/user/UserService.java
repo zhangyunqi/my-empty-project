@@ -1,6 +1,6 @@
 package com.zyq.myemptyproject.service.user;
 
-import org.apache.catalina.User;
+import com.zyq.myemptyproject.entity.User;
 
 /**
  * 用户服务
@@ -15,5 +15,19 @@ public interface UserService {
      * @param user 用户信息
      */
     void addUser(User user);
+
+    /**
+     * 通过ID删除用户
+     *
+     * @param id
+     */
+    void deleteUserById(Long id);
+
+    /**
+     * 通过多个实体批量删除用户
+     *
+     * @param users
+     */
+    void deleteUsers(Iterable<User> users);
 
 }

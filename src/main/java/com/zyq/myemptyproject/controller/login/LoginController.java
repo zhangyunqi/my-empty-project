@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @RequestMapping(value = {"login", ""})
     public ModelAndView login(ModelAndView modelAndView) {
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("login");
         return modelAndView;
     }
 }

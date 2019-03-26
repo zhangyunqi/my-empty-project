@@ -1,6 +1,6 @@
 package com.zyq.myemptyproject.dao;
 
-import org.apache.catalina.User;
+import com.zyq.myemptyproject.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
