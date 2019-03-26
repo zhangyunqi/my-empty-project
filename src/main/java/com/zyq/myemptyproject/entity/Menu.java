@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author zhangyq
  */
-
+@Entity
 @Table(name = "menu")
 public class Menu implements Serializable {
 

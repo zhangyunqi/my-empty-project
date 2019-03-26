@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author zhangyq
  */
-
+@Entity
 @Table(name = "operation")
 public class Operation implements Serializable {
 

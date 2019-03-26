@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author zhangyq
  */
-
+@Entity
 @Table(name = "user_role_relation")
 public class User_Role_Relation implements Serializable {
 

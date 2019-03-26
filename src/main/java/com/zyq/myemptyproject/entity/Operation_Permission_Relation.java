@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author zhangyq
  */
-
+@Entity
 @Table(name = "operation_permission_relation")
 public class Operation_Permission_Relation implements Serializable {
 
