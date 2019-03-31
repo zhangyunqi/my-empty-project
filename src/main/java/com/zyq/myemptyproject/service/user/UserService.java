@@ -1,6 +1,7 @@
 package com.zyq.myemptyproject.service.user;
 
 import com.zyq.myemptyproject.entity.User;
+import org.springframework.data.domain.Page;
 
 /**
  * 用户服务
@@ -17,11 +18,11 @@ public interface UserService {
     void addUser(User user);
 
     /**
-     * 通过ID删除用户
+     * 通过ID删除用户下【逻辑删除】
      *
      * @param id
      */
-    void deleteUserById(Long id);
+    void deleteUserByIdOfLogic(Long id);
 
     /**
      * 通过多个实体批量删除用户
@@ -29,5 +30,12 @@ public interface UserService {
      * @param users
      */
     void deleteUsers(Iterable<User> users);
+
+    /**
+     * 分页查询用户，未删除的
+     *
+     * @return
+     */
+    Page<User> getUsersOfPage();
 
 }

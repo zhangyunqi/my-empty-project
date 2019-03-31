@@ -22,7 +22,7 @@ public class User implements Serializable {
      * 用户ID
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -67,25 +67,34 @@ public class User implements Serializable {
      */
     @Column(name = "last_login_time")
     private Date lastLoginTime;
+    /**
+     * 错误登录次数
+     */
+    @Column(name = "error_login_number")
+    private Integer errorLoginNumber;
 
     /**
      * 锁定状态 0：未锁定 1：锁定
      */
     @Column(name = "locked")
-    private String locked;
+    private Integer locked;
 
     /**
      * 更新时间
      */
     @Column(name = "gmt_update_time")
     private Date gmtUpdateTime;
+    /**
+     * 删除标志 0：未删除 1：删除
+     */
+    @Column(name = "is_delete")
+    private Integer deleted;
 
     public User() {
         super();
     }
 
-    public User(Long id, String userName, String loginName, String password, String phone, String mail, Date gmtCreateTime, Date lastLoginTime, String locked, Date gmtUpdateTime) {
-        this.id = id;
+    public User(String userName, String loginName, String password, String phone, String mail, Date gmtCreateTime, Date lastLoginTime, Integer errorLoginNumber, Integer locked, Date gmtUpdateTime, Integer deleted) {
         this.userName = userName;
         this.loginName = loginName;
         this.password = password;
@@ -93,8 +102,27 @@ public class User implements Serializable {
         this.mail = mail;
         this.gmtCreateTime = gmtCreateTime;
         this.lastLoginTime = lastLoginTime;
+        this.errorLoginNumber = errorLoginNumber;
         this.locked = locked;
         this.gmtUpdateTime = gmtUpdateTime;
+        this.deleted = deleted;
+    }
+
+    /**
+     * 存入session的构造函数
+     *
+     * @param userName
+     * @param loginName
+     * @param phone
+     * @param mail
+     * @param locked
+     */
+    public User(String userName, String loginName, String phone, String mail, Integer locked) {
+        this.userName = userName;
+        this.loginName = loginName;
+        this.phone = phone;
+        this.mail = mail;
+        this.locked = locked;
     }
 
     public Long getId() {
@@ -145,6 +173,7 @@ public class User implements Serializable {
         this.mail = mail;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getGmtCreateTime() {
         return this.gmtCreateTime;
     }
@@ -153,6 +182,7 @@ public class User implements Serializable {
         this.gmtCreateTime = gmtCreateTime;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getLastLoginTime() {
         return this.lastLoginTime;
     }
@@ -161,14 +191,15 @@ public class User implements Serializable {
         this.lastLoginTime = lastLoginTime;
     }
 
-    public String getLocked() {
+    public Integer getLocked() {
         return this.locked;
     }
 
-    public void setLocked(String locked) {
+    public void setLocked(Integer locked) {
         this.locked = locked;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getGmtUpdateTime() {
         return this.gmtUpdateTime;
     }
@@ -177,4 +208,19 @@ public class User implements Serializable {
         this.gmtUpdateTime = gmtUpdateTime;
     }
 
+    public Integer getErrorLoginNumber() {
+        return errorLoginNumber;
+    }
+
+    public void setErrorLoginNumber(Integer errorLoginNumber) {
+        this.errorLoginNumber = errorLoginNumber;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 }

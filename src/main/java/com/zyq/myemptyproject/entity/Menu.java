@@ -22,7 +22,7 @@ public class Menu implements Serializable {
      * 权限id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
