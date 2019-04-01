@@ -2,123 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户管理</title>
-
-    <script>
-        init({
-            title: 'Multiple Table',
-            desc: 'Multiple tables in one page.',
-            links: ['bootstrap-table.min.css'],
-            scripts: ['bootstrap-table.min.js']
-        })
-    </script>
-
-    <style>
-        .left {
-            float: left;
-        }
-
-        .right {
-            float: right;
-        }
-
-        .like {
-            margin-right: 10px;
-        }
-
-        .item {
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Title</title>
+    <link href="../css/whole.css" rel="stylesheet">
 </head>
 <body>
-
-<div class="item">
-    <table
-            data-toggle="table"
-            data-url="json/data3.json">
-        <thead>
-        <tr>
-            <th data-field="github.name"
-                data-formatter="operateFormatter"
-                data-events="operateEvents">Bookmark 1
-            </th>
-        </tr>
-        </thead>
-    </table>
-</div>
-
-<div class="item">
-    <table
-            data-toggle="table"
-            data-url="json/data3.json">
-        <thead>
-        <tr>
-            <th data-field="github.name"
-                data-formatter="operateFormatter"
-                data-events="operateEvents">Bookmark 1
-            </th>
-        </tr>
-        </thead>
-    </table>
-</div>
-
-<div class="item">
-    <table
-            data-toggle="table"
-            data-url="json/data3.json">
-        <thead>
-        <tr>
-            <th data-field="github.name"
-                data-formatter="operateFormatter"
-                data-events="operateEvents">Bookmark 1
-            </th>
-        </tr>
-        </thead>
-    </table>
-</div>
-
-<div class="item">
-    <table
-            data-toggle="table"
-            data-url="json/data3.json">
-        <thead>
-        <tr>
-            <th data-field="github.name"
-                data-formatter="operateFormatter"
-                data-events="operateEvents">Bookmark 1
-            </th>
-        </tr>
-        </thead>
-    </table>
-</div>
-
-<script>
-    window.operateEvents = {
-        'click .like': function (e, value, row) {
-            alert('You click like action, row: ' + JSON.stringify(row))
-        },
-        'click .remove': function (e, value, row) {
-            alert('You click remove action, row: ' + JSON.stringify(row))
-        }
-    }
-
-    function operateFormatter(value, row, index) {
-        return [
-            '<div class="left">',
-            '<a href="https://github.com/wenzhixin/' + value + '" target="_blank">' + value + '</a>',
-            '</div>',
-            '<div class="right">',
-            '<a class="like" href="javascript:void(0)" title="Like">',
-            '<i class="fa fa-heart"></i>',
-            '</a>  ',
-            '<a class="remove" href="javascript:void(0)" title="Remove">',
-            '<i class="fa fa-trash"></i>',
-            '</a>',
-            '</div>'
-        ].join('')
-    }
-</script>
-
+<table
+        id="table"
+        data-toggle="table"
+        data-show-columns="true"
+        data-multiple-select-row="true"
+        data-click-to-select="true"
+        data-pagination="true"
+        data-search="true"
+        data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
+        data-side-pagination="server">
+    <thead>
+    <tr>
+        <th data-field="state" data-checkbox="true"></th>
+        <th data-field="id" data-sortable="true">ID</th>
+        <th data-field="name" data-sortable="true">Item Name</th>
+        <th data-field="price" data-sortable="true">Item Price</th>
+    </tr>
+    </thead>
+</table>
+<script src="../js/whole.js"></script>
 </body>
 </html>

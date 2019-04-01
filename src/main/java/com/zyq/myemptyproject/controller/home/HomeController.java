@@ -25,15 +25,4 @@ public class HomeController {
         modelAndView.setViewName("home");
         return modelAndView;
     }
-    /**
-     * 跳转到HOME页面
-     *
-     * @param modelAndView
-     * @return
-     */
-    @GetMapping(value = "/tohome1")
-    public ModelAndView toHome1(ModelAndView modelAndView) {
-        modelAndView.setViewName("home");
-        return modelAndView;
-    }
 }
