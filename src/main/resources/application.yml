@@ -13,14 +13,15 @@ spring:
     # 配置Druid
     druid:
       # 定义的数据源名
-      #driver-class-name: oracle.jdbc.driver.OracleDriver
-      #url: jdbc:oracle:thin:@192.168.65.49:1521/logtest
-      #username: log
-      #password: log
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/rbac?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      username: zyq
-      password: zyq
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@192.168.65.49:1521/logtest
+      username: log
+      password: log
+      #driver-class-name: com.mysql.cj.jdbc.Driver
+      #url: jdbc:mysql://localhost:3306/rbac?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      #&allowPublicKeyRetrieval=true
+      #username: zyq
+      #password: zyq
       initial-size: 1
       max-active: 20
       min-idle: 1
@@ -37,13 +38,21 @@ spring:
       async-close-connection-enable: true
   freemarker:
     cache: false
-    charset: UTF-8
+    charset: utf-8
     check-template-location: true
     content-type: text/html
-    expose-session-attributes: true
-    expose-request-attributes: true
+    expose-session-attributes: false
+    expose-request-attributes: false
     request-context-attribute: request
     suffix: .html
+    settings:
+      template_update_delay: 5
+      default_encoding: utf-8
+      classic_compatible: true
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      datetime_format: yyyy-MM-dd HH:mm:ss
+
   #热部署
   devtools:
     remote:
@@ -51,11 +60,11 @@ spring:
         enabled: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
-    database: mysql
-    #database-platform: org.hibernate.dialect.Oracle12cDialect
-    database-platform: org.hibernate.dialect.MySQL55Dialect
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    #database-platform: org.hibernate.dialect.MySQL55Dialect
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
