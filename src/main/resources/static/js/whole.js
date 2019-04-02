@@ -4,3 +4,4 @@ document.write("<script language='javascript' src='/js/plugins/metisMenu/jquery.
 document.write("<script language='javascript' src='/js/plugins/slimscroll/jquery.slimscroll.min.js'></script>");
 document.write("<script language='javascript' src='/js/plugins/layer/layer.min.js'></script>");
 document.write("<script language='javascript' src='/js/plugins/bootstrap-table/bootstrap-table.min.js'></script>");
+document.write("<script language='javascript' src='/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js'></script>");
