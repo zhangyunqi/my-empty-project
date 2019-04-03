@@ -1,6 +1,7 @@
 package com.zyq.myemptyproject.controller.user;
 
 import com.zyq.myemptyproject.common.util.PageUtils;
+import com.zyq.myemptyproject.common.vo.PageJson;
 import com.zyq.myemptyproject.entity.User;
 import com.zyq.myemptyproject.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * 用户管理
@@ -46,10 +49,8 @@ public class UserController {
      */
     @GetMapping(value = "/getUsersOfPage")
     @ResponseBody
-    public String getUsersOfPage(ModelAndView modelAndView){
-//        Page<User> page = userService.getUsersOfPage();
-//        modelAndView.addAllObjects(PageUtils.pageAttributeToMap(page));
-        modelAndView.setViewName("/user/userManager");
-        return "1111";
+    public PageJson<User> getUsersOfPage(){
+        Page<User> page = userService.getUsersOfPage();
+        return new PageJson<>(page.getTotalElements(),page.getContent());
     }
 }

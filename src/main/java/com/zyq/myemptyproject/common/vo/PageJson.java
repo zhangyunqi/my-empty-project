@@ -11,22 +11,22 @@ public class PageJson<T> implements Serializable{
     /**
      * 总数
      */
-    private Integer total;
+    private long total;
     /**
      * 数据
      */
     private Iterable<T> rows;
 
-    public PageJson(Integer total, Iterable<T> rows) {
+    public PageJson(long total, Iterable<T> rows) {
         this.total = total;
         this.rows = rows;
     }
 
-    public Integer getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 
