@@ -11,7 +11,7 @@ import java.util.Date;
  * @author zhangyq
  */
 @Entity
-@Table(name = "user")
+@Table(name = "sys_user")
 public class User implements Serializable {
 
 

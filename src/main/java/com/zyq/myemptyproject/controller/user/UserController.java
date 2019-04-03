@@ -9,6 +9,7 @@ import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -37,5 +38,18 @@ public class UserController {
 //        modelAndView.addAllObjects(PageUtils.pageAttributeToMap(page));
         modelAndView.setViewName("/user/userManager");
         return modelAndView;
+    }
+    /**
+     * 跳转到用户管理页面
+     * @param modelAndView
+     * @return
+     */
+    @GetMapping(value = "/getUsersOfPage")
+    @ResponseBody
+    public String getUsersOfPage(ModelAndView modelAndView){
+//        Page<User> page = userService.getUsersOfPage();
+//        modelAndView.addAllObjects(PageUtils.pageAttributeToMap(page));
+        modelAndView.setViewName("/user/userManager");
+        return "1111";
     }
 }
