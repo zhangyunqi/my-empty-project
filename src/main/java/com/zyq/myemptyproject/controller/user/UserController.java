@@ -37,14 +37,11 @@ public class UserController {
      */
     @GetMapping(value = "/toUserMamagerPage")
     public ModelAndView toUserMamagerPage(ModelAndView modelAndView){
-//        Page<User> page = userService.getUsersOfPage();
-//        modelAndView.addAllObjects(PageUtils.pageAttributeToMap(page));
         modelAndView.setViewName("/user/userManager");
         return modelAndView;
     }
     /**
      * 跳转到用户管理页面
-     * @param modelAndView
      * @return
      */
     @GetMapping(value = "/getUsersOfPage")

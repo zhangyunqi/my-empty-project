@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author zhangyunqi
  * @date 2019/03/14
  */
-@Configuration
+//@Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
     @Autowired
     private LoginHandlerInterceptor loginHandlerInterceptor;

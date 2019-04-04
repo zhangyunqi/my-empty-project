@@ -1,5 +1,8 @@
 package com.zyq.myemptyproject.entity;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -223,4 +226,5 @@ public class User implements Serializable {
     public void setDeleted(Integer deleted) {
         this.deleted = deleted;
     }
+
 }

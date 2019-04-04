@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setDeleted(0);
         Example<User> example = Example.of(user);
-        Page<User> userPage = userDAO.findAll(example,PageRequest.of(1,10));
+        Page<User> userPage = userDAO.findAll(example,PageRequest.of(0,10));
         return userPage;
     }
 }

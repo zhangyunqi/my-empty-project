@@ -30,17 +30,29 @@
         data-search="false"
         data-height="460"
         data-page-size="100"
-        data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
+        data-url="/user/getUsersOfPage"
         data-side-pagination="server">
     <thead>
     <tr>
         <th data-field="state" data-checkbox="true" ></th>
-        <th data-field="id" data-sortable="true">ID</th>
-        <th data-field="name" data-sortable="true">Item Name</th>
-        <th data-field="price" data-sortable="true">Item Price</th>
+        <th data-field="id" data-visible="false">ID</th>
+        <th data-field="userName">用户名</th>
+        <th data-field="lastLoginTime" >最后登陆时间</th>
+        <th data-field="lockedName" data-formatter="lockFormatter">锁定状态</th>
     </tr>
     </thead>
 </table>
 <script src="../js/whole.js"></script>
+<script type="text/javascript">
+function lockFormatter(value,row,index,filed) {
+    var a ="";
+    if(0 == row.locked){
+        a = "未锁定";
+    }else if (1 == row.locked){
+        a = "锁定";
+    }
+    return a;
+}
+</script>
 </body>
 </html>
